@@ -22,6 +22,7 @@
 #include <functional>
 #include <iostream>
 #include <mutex>
+#include <thread>
 #include <utility>
 
 //////////////////////////////////////////////////////////////////////////////
@@ -186,7 +187,7 @@ void test_concurrent_callback_registration()
         hpx::thread waiter2{thread_loop, source.get_token()};
         hpx::thread waiter3{thread_loop, source.get_token()};
 
-        hpx::this_thread::sleep_for(std::chrono::milliseconds(10));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
         hpx::thread canceller{[&source] { source.request_stop(); }};
 
@@ -287,7 +288,7 @@ void test_callback_deregistration_blocks_until_callback_finishes()
                 callback_executing = true;
                 cv.notify_all();
                 lock.unlock();
-                hpx::this_thread::sleep_for(std::chrono::milliseconds(100));
+                hpx::this_thread::yield();
                 HPX_TEST(!callback_unregistered);
                 callback_about_to_return = true;
             };

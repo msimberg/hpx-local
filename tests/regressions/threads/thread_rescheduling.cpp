@@ -65,7 +65,8 @@ namespace detail {
             // suspend after one full loop over all values, 10ms should be fine
             // (default parameter)
             if (!suspended)
-                suspend(milliseconds(suspend_for));
+                // suspend(milliseconds(suspend_for));
+                suspend();
         }
         return handled.count();
     }

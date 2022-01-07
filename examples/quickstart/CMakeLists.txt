@@ -18,7 +18,6 @@ set(example_programs
     fibonacci_local
     file_serialization
     hello_world
-    interval_timer
     latch_local
     local_channel
     local_channel_docs
@@ -43,7 +42,6 @@ set(customize_async_PARAMETERS THREADS_PER_LOCALITY 4)
 set(enumerate_threads_PARAMETERS THREADS_PER_LOCALITY 4)
 set(event_synchronization_PARAMETERS THREADS_PER_LOCALITY 4)
 set(hello_world_PARAMETERS THREADS_PER_LOCALITY 4)
-set(interval_timer_PARAMETERS THREADS_PER_LOCALITY 4)
 set(local_channel_PARAMETERS THREADS_PER_LOCALITY 4)
 set(simple_future_continuation_PARAMETERS THREADS_PER_LOCALITY 4)
 set(timed_futures_PARAMETERS THREADS_PER_LOCALITY 4)
